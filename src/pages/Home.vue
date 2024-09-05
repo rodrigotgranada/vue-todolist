@@ -2,7 +2,7 @@
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
 
-    <!-- Formulário de adicionar tarefa estará disponível em todas as rotas -->
+    <!-- Formulário de adicionar tarefa -->
     <ToDoForm @add-todo="addTodo" />
 
     <!-- Botões de navegação -->
@@ -17,23 +17,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import ToDoForm from '@/components/ToDoForm.vue';
-import { useStore } from 'vuex';
-import { Todo } from '@/store/index';
+<script setup lang="ts">
+import ToDoForm from "@/components/ToDoForm.vue";
+import { Todo } from "@/store/modules/todos";
+import { useStore } from "vuex";
 
-export default defineComponent({
-  components: { ToDoForm },
-  setup() {
-    const store = useStore();
+const store = useStore();
 
-    // Função para adicionar nova tarefa
-    const addTodo = (todo: Todo) => {
-      store.dispatch('todos/addTodoAction', todo);
-    };
-
-    return { addTodo };
-  }
-});
+// Função para adicionar nova tarefa
+const addTodo = (todo: Todo) => {
+  store.dispatch("todos/addTodoAction", todo);
+};
 </script>

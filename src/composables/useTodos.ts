@@ -1,6 +1,6 @@
-import { Todo } from "@/store/modules/todos";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { Todo } from "../store/modules/todos";
 
 export function useTodos() {
   const store = useStore();

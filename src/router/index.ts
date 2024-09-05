@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "@/pages/Home.vue";
 import NotFound from "@/pages/NotFound.vue";
 import About from "@/pages/About.vue";
+import Counter from "@/pages/Counter.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,6 +31,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "About",
     component: About,
   },
+  { path: "/counter", name: "Counter", component: Counter }, // Nova rota
   {
     path: "/:pathMatch(.*)*", // rota para páginas não encontradas
     name: "NotFound",
